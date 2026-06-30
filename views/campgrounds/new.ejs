@@ -1,0 +1,71 @@
+<%- layout('layouts/boilerplate.ejs') %>
+<% title= `Create Campground - YelpCamp` %>
+    <div class="row">
+        <h1 class="col-12 text-center">Create a Campground</h1>
+        <div class="col-12 col-md-6 offset-md-3">
+            <form action="/campgrounds/new" method="post" novalidate class="validated-form"
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" name="title" id="title" required class="form-control">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a title.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location:</label>
+                    <input type="text" name="location" id="location" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a location.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="images" class="form-label">Image:</label>
+                    <input type="file" name="images" id="images" class="form-control" multiple>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please input at least one image.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label ">Description:</label>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a description.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="price"
+                            placeholder="0.00" aria-describedby="price-label" min="0" value="0" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please enter a valid price ($0 or more)
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+            <a href="/campgrounds/">All Campgrounds</a>
+        </div>
+    </div>

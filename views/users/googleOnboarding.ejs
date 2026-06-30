@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <% title='Complete Registration - YelpCamp' %>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">
+                <div class="card shadow border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h1 class="h3 fw-bold mb-2">Thank you for registering!</h1>
+                            <p class="text-body-secondary mb-0">
+                                Please Enter a Display Name to Continue
+                            </p>
+                        </div>
+
+                        <form action="/onboarding" method="post" class="validated-form" novalidate>
+                            <div class="mb-3">
+                                <label for="displayName" class="form-label fw-semibold">Display Name:</label>
+                                <input type="text" name="displayName" id="displayName"
+                                    class="form-control form-control-lg" autocomplete="displayName" autofocus required>
+                                <div class="invalid-feedback">
+                                    Please enter your display name.
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-lg w-100 fw-semibold">
+                                Complete Registration
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

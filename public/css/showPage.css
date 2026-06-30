@@ -1,0 +1,13 @@
+#map {
+    max-width: 100%;
+    width: 100%;
+    height: 400px;
+}
+
+#carouselExample {
+    height: 400px;
+}
+
+.carousel-img {
+    height: 400px;
+}

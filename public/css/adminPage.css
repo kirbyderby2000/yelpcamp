@@ -1,0 +1,24 @@
+h1 svg {
+    width: 85px;
+}
+
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    height: 50px;
+    border-radius: 30px;
+    padding-left: 45px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}

@@ -1,0 +1,42 @@
+{
+  "name": "yelpcamp",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "node --watch --env-file=.env index.js",
+    "seed": "node seed/seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.16.2",
+    "bootstrap": "^5.3.8",
+    "cloudinary": "^2.10.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
+    "ejs": "^5.0.2",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.2.0",
+    "joi": "^18.2.1",
+    "mapbox-gl": "^3.24.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.6.2",
+    "morgan": "^1.10.1",
+    "multer": "^2.1.1",
+    "nodemailer": "^9.0.1",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^9.1.0",
+    "resend": "^6.14.0",
+    "sanitize-html": "^2.17.5",
+    "starability": "^2.4.0",
+    "uuid": "^14.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Yosemite National Park",
+        "price": "36",
+        "description": "Yosemite National Park offers 13 popular campgrounds, with options ranging from developed, central sites in Yosemite Valley to rustic high-country spots along Tioga Road. Amenities include fire rings, picnic tables, food lockers, and access to flush toilets.",
+        "location": "Tuolumne Meadows, California",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -120.238613,
+                37.96132
+            ]
+        },
+        "author": "6a29f6e923d790e7f3b6631a",
+        "images": [
+            {
+                "url": "img-url-here",
+                "public_id": "seed",
+                "author": "6a29f6e923d790e7f3b6631a"
+            }
+        ]
+    }
+]

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YelpCamp - Homepage</title>
+    <meta name="description"
+        content="Homepage for the completed YelpCamp Project as shown in the Web Development Bootcamp Course by Colt Steele on Udemy.">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+</head>
+
+<body class="homepage-body text-white">
+    <div class=" d-flex w-100 min-vh-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <h1 class="mb-3 mb-md-0 fw-bold">YelpCamp</h1>
+
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/campgrounds">Campgrounds</a>
+
+                    <% if (!currentUser) { %>
+                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/register">Register</a>
+                        <% } else { %>
+                            <a class="nav-link" href="/logout">Logout</a>
+                            <% } %>
+                </nav>
+            </div>
+        </header>
+
+        <main class="hero-content text-center">
+            <p class="eyebrow mb-3">Explore the outdoors</p>
+
+            <h3 class="display-2 fw-bold mb-3">Find your next campground.</h3>
+
+            <p class="lead hero-copy mb-4">
+                Discover beautiful campgrounds, read reviews, and share your favorite places to stay under the stars.
+            </p>
+
+            <a class="btn btn-lg btn-light fw-bold px-4 py-2" href="/campgrounds">
+                View Campgrounds
+            </a>
+            <hr class="my-3 mx-5">
+            <p class="lead hero-copy mb-4">
+                This is a portfolio project made in the Web Development Bootcamp course by Colt Steele.
+                <br>
+                Check out the about page to learn more.
+            </p>
+
+            <a class="btn btn-lg btn-info fw-bold px-4 py-2" href="/about">
+                About
+            </a>
+        </main>
+
+        <footer class="mt-auto text-white-50 small">
+            YelpCamp 2026 &copy; Made in Los Angeles by Bryan Ayala
+        </footer>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/homepage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<%- layout('layouts/boilerplate') %>
+    <% title='Admin Dashboard - YelpCamp' %>
+        <link rel="stylesheet" href="/css/adminPage.css">
+        <div class="container justify-content-center">
+            <h1 class="text-center my-3"> <svg fill="#000000" viewBox="0 0 1920 1920"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M276.941 440.584v565.722c0 422.4 374.174 625.468 674.71 788.668l8.02 4.292 8.131-4.292c300.537-163.2 674.71-366.268 674.71-788.668V440.584l-682.84-321.657L276.94 440.584Zm682.73 1479.529c-9.262 0-18.523-2.372-26.993-6.89l-34.9-18.974C588.095 1726.08 164 1495.906 164 1006.306V404.78c0-21.91 12.65-41.788 32.414-51.162L935.727 5.42c15.134-7.228 32.866-7.228 48 0l739.313 348.2c19.765 9.374 32.414 29.252 32.414 51.162v601.525c0 489.6-424.207 719.774-733.779 887.943l-34.899 18.975c-8.47 4.517-17.731 6.889-27.105 6.889Zm467.158-547.652h-313.412l-91.595-91.482v-83.803H905.041v-116.78h-83.69l-58.503-58.504c-1.92.113-3.84.113-5.76.113-176.075 0-319.285-143.21-319.285-319.285 0-176.075 143.21-319.398 319.285-319.398 176.075 0 319.285 143.323 319.285 319.398 0 1.92 0 3.84-.113 5.647l350.57 350.682v313.412Zm-266.654-112.941h153.713v-153.713L958.462 750.155l3.953-37.27c1.017-123.897-91.595-216.621-205.327-216.621S550.744 588.988 550.744 702.72c0 113.845 92.612 206.344 206.344 206.344l47.21-5.309 63.811 63.7h149.873v116.78h116.781v149.986l25.412 25.299Zm-313.4-553.57c0 46.758-37.949 84.706-84.706 84.706-46.758 0-84.706-37.948-84.706-84.706s37.948-84.706 84.706-84.706c46.757 0 84.706 37.948 84.706 84.706"
+                        fill-rule="evenodd" />
+                </svg> Admin Dashboard</h1>
+            <div>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <div class="search-container">
+                            <form action="/admin" method="get">
+                                <input type="text" class="form-control search-input" placeholder="Search for a user..."
+                                    name="q">
+                                <i class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                    </svg></i>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <form action="/admin/action" method="post" class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>UserId</th>
+                                <th>Username</th>
+                                <th>Display Name</th>
+                                <th>Email Address</th>
+                                <th>Email Verified</th>
+                                <th>GoogleId</th>
+                                <th>Is Admin</th>
+                                <th>Is Banned</th>
+                                <th>Select</th>
+                                <th>Inspect</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let index=0; index < users.length; index++) { const user=users[index];
+                                if(currentUser && currentUser._id.equals(user._id)) {continue;} %>
+                                <tr>
+
+                                    <td>
+                                        <label for="<%= user._id %>">
+                                            <%= user._id %>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label for="<%= user._id %>">
+                                            <%= user.username %>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label for="<%= user._id %>">
+                                            <%= user.displayName %>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label for="<%= user._id %>">
+                                            <%= user.email %>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <%= user.emailVerified ? 'YES' : 'NO' %>
+                                    </td>
+                                    <td>
+                                        <%= user.googleId ? '' : user.googleId %>
+                                    </td>
+                                    <td>
+                                        <%= user.admin ? 'YES' : 'NO' %>
+                                    </td>
+                                    <td>
+                                        <label for="<%= user._id %>">
+                                            <%= user.banned ? 'YES' : 'NO' %>
+                                        </label>
+                                    </td>
+                                    <td><input type="checkbox" name="users[]" id="<%= user._id%>"
+                                            value="<%= user._id%>">
+                                    </td>
+                                    <td><a href="/admin/<%=user._id %>">Details</a></td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <div class="row justify-content-center">
+
+                        <div class="col-3">
+
+                            <span>
+                                <label for="page" class="d-inline">
+                                    <span class="badge text-bg-primary">Page <%= currentPage %> / <%= totalPages %>
+                                    </span> |
+                                    Go To
+                                    Page
+                                </label>
+                                <input type="number" name="p" id="page" value="<%= currentPage %>"
+                                    class="d-inline-block" min="1" max="<%=totalPages%>">
+                                <button type="submit" class="btn btn-success mx-1" id="page-btn"
+                                    data-q="<%=currentQuery%>">Go</button>
+                            </span>
+                            <% if(totalPages> 1){
+                                %>
+
+                                <a href="/admin?q=<%=currentQuery%>&p=<%= Math.max(currentPage - 1, 1)%>">
+                                    <span class="badge text-bg-info">
+                                        Previous Page
+                                    </span>
+                                </a>
+                                <a href="/admin?q=<%=currentQuery%>&p=<%= Math.min(currentPage + 1, totalPages)%>">
+                                    <span class="badge text-bg-info">
+                                        Next Page
+                                    </span>
+                                </a>
+                                <% } %>
+
+                                    <div class="fw-bold text-center">
+                                        <%= totalFound %> Results Found
+                                    </div>
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-center mt-5 pb-4">
+                        <div class="col col-md-4">
+                            <label class="form-label fw-bold" for="action">Select an Action</label>
+                            <select class="form-select" name="action">
+                                <option value="BanRemoveContent">Ban And Remove Content</option>
+                                <option value="RemoveContent">Remove Content</option>
+                                <option value="Ban">Ban</option>
+                                <option value="Unban">Unban</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col col-md-4 text-center">
+                            <button type="submit" class="btn btn-warning btn-lg px-5">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    <div>
+                        <a href="/admin/lockdown" class="btn btn-danger">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-radioactive" viewBox="0 0 16 16">
+                                    <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8" />
+                                    <path
+                                        d="M9.653 5.496A3 3 0 0 0 8 5c-.61 0-1.179.183-1.653.496L4.694 2.992A5.97 5.97 0 0 1 8 2c1.222 0 2.358.365 3.306.992zm1.342 2.324a3 3 0 0 1-.884 2.312 3 3 0 0 1-.769.552l1.342 2.683c.57-.286 1.09-.66 1.538-1.103a6 6 0 0 0 1.767-4.624zm-5.679 5.548 1.342-2.684A3 3 0 0 1 5.005 7.82l-2.994-.18a6 6 0 0 0 3.306 5.728ZM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0" />
+                                </svg></span>
+
+                            Lockdown Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="/js/adminDashboard.js"></script>

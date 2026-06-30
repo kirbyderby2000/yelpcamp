@@ -1,0 +1,73 @@
+<%- layout('layouts/boilerplate.ejs') %>
+    <% title=`All Campgrounds - YelpCamp` %>
+        <!-- Mapbox GL CSS -->
+        <link rel="stylesheet" href="/mapbox-gl/mapbox-gl.css">
+        <!-- Index page CSS -->
+        <link rel="stylesheet" href="/css/campgroundIndex.css">
+
+
+        <!-- MapBox Cluster Map -->
+        <div id="map" class="mb-4" data-mapbox="<%= process.env.MAPBOX_TOKEN_PUBLIC_CLIENT %>"></div>
+        <!-- Search for Campground Input -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <div class="search-container">
+                    <form action="/campgrounds" method="get">
+                        <input type="text" class="form-control search-input" placeholder="Search for a campground..."
+                            name="q">
+                        <i class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg></i>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <%= titleHeader %>
+            </h1>
+            <a href="/campgrounds/new" class="btn btn-primary">Add Campground</a>
+        </div>
+
+        <div id="camp-container" class="mb-5">
+
+        </div>
+
+        <template id="camp-template">
+            <div class="card mb-3 camp-card">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex">
+                        <img src="" class="camp-img img-fluid rounded-start w-100"
+                            style="object-fit: cover; min-height: 200px;" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title camp-title">
+                            </h5>
+                            <small class="text-secondary mb-2 camp-loc">
+                            </small>
+                            <p class="card-text text-muted flex-grow-1 camp-desc">
+
+                            </p>
+                            <div>
+                                <a href="" class="btn btn-outline-primary px-4 camp-link">View
+                                    Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <%- include('../partials/pagination.ejs') %>
+
+            <script>
+                const clusterMapDataJSON = `<%- clusterMapDataJSON %>`;
+            </script>
+            <script src="/mapbox-gl/mapbox-gl.js"></script>
+            <script src="/js/clusterMap.js"></script>
+            <script type="module" src="/js/indexCampgrounds.js"></script>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /about
+Disallow: /login
+Disallow: /register
+Disallow: /resetPassword
+Disallow: /campgrounds/
+Disallow: /reviews/
+
+Sitemap: https://yelpcampproject.com/sitemap.xml

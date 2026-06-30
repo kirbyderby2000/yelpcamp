@@ -1,0 +1,65 @@
+.homepage-body {
+    min-height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.45)),
+        url('/img/bg-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: calc(1.3rem + .6vw);
+}
+
+.cover-container {
+    max-width: 1100px;
+}
+
+.nav-masthead .nav-link {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.25rem 0;
+    margin-left: 1rem;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-masthead .nav-link.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-copy {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.btn {
+    text-shadow: none;
+    border-radius: 999px;
+}

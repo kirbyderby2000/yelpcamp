@@ -1,0 +1,132 @@
+<% layout('layouts/boilerplate') %>
+    <% title='Admin Inspect - ' + inspectUser.displayName %>
+        <h1 class="text-center mb-5">User Inspection</h1>
+        <div class="row justify-content-center">
+            <div class="col col-md-4">
+                <h3 class="text-center">User Details</h3>
+                <div>
+                    UserId: <%= inspectUser._id %>
+                </div>
+                <div>
+                    Username: <%= inspectUser.username %>
+                </div>
+                <div>
+                    Display Name: <%= inspectUser.displayName %>
+                </div>
+                <div>
+                    Email Address: <%= inspectUser.email %>
+                </div>
+                <div>
+                    Goolge ID: <%= inspectUser.googleId %>
+                </div>
+                <div>
+                    Email Verified: <%= inspectUser.emailVerified %>
+                </div>
+                <div>
+                    Is Admin: <%= inspectUser.admin %>
+                </div>
+                <div>
+                    Banned: <%= inspectUser.banned %>
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <h3 class="text-center">Admin Actions</h3>
+                <form action="/admin/action" method="post">
+                    <div class="d-none">
+                        <input type="checkbox" name="users[]" id="<%= inspectUser._id %>" value="<%= inspectUser._id %>"
+                            checked>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold" for="action">Select an Action</label>
+                        <select class="form-select" name="action">
+                            <option value="BanRemoveContent">Ban And Remove Content</option>
+                            <option value="RemoveContent">Remove Content</option>
+                            <option value="Ban">Ban</option>
+                            <option value="Unban">Unban</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning btn-lg px-5">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Campgrounds Submitted: <%= campgrounds.length %>
+                </h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Title</td>
+                            <td>Description</td>
+                            <td>Location</td>
+                            <td>Image Count</td>
+                            <td>Link</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let index=0; index < campgrounds.length; index++) { const campground=campgrounds[index];
+                            %>
+                            <tr>
+                                <td>
+                                    <%= campground.title%>
+                                </td>
+                                <td>
+                                    <%= campground.description%>
+                                </td>
+                                <td>
+                                    <%= campground.location%>
+                                </td>
+                                <td>
+                                    <%= campground.images.length%>
+                                </td>
+                                <td>
+                                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">Details</a>
+                                </td>
+
+                            </tr>
+
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Reviews Submitted: <%= reviews.length %>
+                </h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Comment</td>
+                            <td>Rating</td>
+                            <td>Campground Title</td>
+                            <td>Campground Link</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let index=0; index < reviews.length; index++) { const review=reviews[index]; %>
+                            <tr>
+                                <td>
+                                    <%= review.comment%>
+                                </td>
+                                <td>
+                                    <%= review.rating%>
+                                </td>
+                                <td>
+                                    <%= review.campground.title%>
+                                </td>
+                                <td>
+                                    <a href="/campgrounds/<%= review.campground._id %>"
+                                        class="btn btn-primary">Campground Details</a>
+                                </td>
+
+                            </tr>
+
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>

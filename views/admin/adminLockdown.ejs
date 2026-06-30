@@ -1,0 +1,23 @@
+<%- layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h1>Lockdown Control Panel</h1>
+    </div>
+    <div>
+        <form action="/admin/lockdown" method="post">
+            <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" name="lockdown" type="checkbox" role="switch" id="lockdown"
+                        value="true" <%=lockdown ? "checked" : "" %>>
+                    <label class="form-check-label" for="lockdown">Lockdown</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="msg" class="form-label">Maintenance Message:</label>
+                <input type="text" name="msg" id="msg" class="form-control" value="<%= msg %>">
+            </div>
+            <button class="btn btn-danger" type="submit">
+                Submit
+            </button>
+        </form>
+    </div>

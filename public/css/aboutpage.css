@@ -1,0 +1,59 @@
+.aboutpage-body {
+    background: linear-gradient(135deg, rgba(25, 55, 35, 0.98), rgba(17, 24, 39, 0.98));
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+h1 {
+    font-size: calc(1.3rem + .6vw);
+}
+
+.nav-masthead .nav-link {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.25rem 0;
+    margin-left: 1rem;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-masthead .nav-link.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.btn {
+    text-shadow: none;
+    border-radius: 999px;
+}
+
+.skill-box svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.skill-box {
+    width: 75px;
+    height: 75px;
+    padding: 0px;
+}
+
+.stack-icon {
+    display: inline-block;
+    margin: auto 8px;
+}
+
+.indent-paragraphs p {
+    text-indent: 2em;
+}
+
+.git-svg {
+    width: 100px;
+    max-width: 80%;
+}
